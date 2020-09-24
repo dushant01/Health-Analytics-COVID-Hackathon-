@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COVID</title>
+</head>
+
+<h1 id="h1">----- COVID- Hospital Stay Prediction  ------ </h1>
+<p id="par">
+                        1- Department: Department overlooking the case <br>
+                        2- Bed Grade: Condition of Bed in the Ward <br>
+
+                        3- Type of Admission: Admission Type registered by the Hospital <br>
+                        4- Severity of Illness: Severity of the illness recorded at the time of admission <br>
+                        5- Age: Age of the patient <br>
+                        6- Admission_Deposit: Deposit at the Admission Time  </p>
+
+<body>
+        <div style="color:black">
+        <form action="{{ url_for('predict')}}" method="post">
+            <h3>Department: <select name="Department" id="Department" required="required">
+                <option value="TB & Chest disease">TB & Chest disease</option>
+                <option value="anesthesia">Anesthesia</option>
+                <option value="gynecology">Gynecology</option>
+                <option value="radiotherapy">Radiotherapy</option>
+                <option value="surgery">Surgery</option>
+            </select> </h3>
+            <h3>Bed Grade : <input id="BG" name="Bed Grade" required="required"> </h3>
+            <h3>Type of Admission : <select name="Type of Admission" id="TOA" required="required">
+                <option value="Emergency">Emergency</option>
+                <option value="Trauma">Trauma</option>
+                <option value="Urgent">Urgent</option>
+            </select> </h3>
+            <h3>Severity of Illness :  <select name="Severity of Illness" id="SOI" required="required">
+                <option value="Extreme">Extreme</option>
+                <option value="Minor">Minor</option>
+                <option value="Moderate">Moderate</option>
+            </select></h3>
+            <h3>Age:  <input type="radio" id="Age[0-10]" name="Age" value="Age[0-10]"> <label for="Age[0-10]">Age[0-10]</label>
+                           <input type="radio" id="Age[11-20]" name="Age" value="Age[11-20]"><label for="Age[11-20]">Age[11-20]</label>
+                           <input type="radio" id="Age[21-30]" name="Age" value="Age[21-30]"> <label for="Age[21-30]">Age[21-30]</label>
+                           <input type="radio" id="Age[31-40]" name="Age" value="Age[31-40]"> <label for="Age[31-40]">Age[31-40]</label>
+                           <input type="radio" id="Age[41-50]" name="Age" value="Age[41-50]"> <label for="Age[41-50]">Age[41-50]</label>
+                           <input type="radio" id="Age[51-60]" name="Age" value="Age[51-60]"> <label for="Age[51-60]">Age[51-60]</label>
+                           <input type="radio" id="Age[61-70]" name="Age" value="Age[61-70]"> <label for="Age[61-70]">Age[61-70]</label>
+                           <input type="radio" id="Age[71-80]" name="Age" value="Age[71-80]"> <label for="Age[71-80]">Age[71-80]</label>
+                           <input type="radio" id="Age[81-90]" name="Age" value="Age[81-90]"> <label for="Age[81-90]">Age[81-90]</label>
+                           <input type="radio" id="Age[91-100]" name="Age" value="Age[91-100]"> <label for="Age[91-100]">Age[91-100]</label>
+                </h3>
+            <h3>Amount Deposit : <input id="BG_1" name="Amount Deposit" required="required"> </h3>
+            <br><br><button id="sub" type="submit"> Submit </button>
+            <br>
+
+        </form>
+             <br><br><h3>{{ prediction_text }}</h3>
+        </div>>
+</body>
+
+
+
+<style>
+        body {
+
+            background-image: url("1230.jpg");
+            background-color:#cccccc;
+            height: 700px;
+            background-position: center;
+
+            background-size: center;
+            text-align: center;
+            padding: 0px;
+        }
+
+       #h1{
+            font-size: 20px;
+            text-align: center;
+
+            }
+
+       #par {
+            font-size: 12px;
+            text-align: center;
+
+             }
+       #H_C {
+             border-radius: 15px;
+             height: 30px;
+             width: 200px;
+             font-size: 15px;
+             text-align: center;
+             }
+        #H_R {
+             border-radius: 15px;
+             height: 30px;
+             width: 200px;
+             font-size: 15px;
+             text-align: center;
+             }
+         #Department {
+            width: 200px;
+            height: 30px;
+            text-align: center;
+            border-radius: 14px;
+            font-size: 20px;
+        }
+        #Department:hover {
+            background-color:#cccccc ;
+        }
+        #BG {
+             border-radius: 14px;
+             height: 30px;
+             font-size: 15px;
+             text-align: center;
+             }
+        #BG_1 {
+             border-radius: 14px;
+             height: 30px;
+             font-size: 15px;
+             text-align: center;
+             }
+        #TOA {
+            width: 200px;
+            height: 30px;
+            text-align: center;
+            border-radius: 14px;
+            font-size: 20px;
+        }
+        #TOA:hover {
+            background-color:#cccccc ;
+        }
+        #SOI {
+            width: 200px;
+            height: 30px;
+            text-align: center;
+            border-radius: 14px;
+            font-size: 20px;
+        }
+        #SOI:hover {
+            background-color:#cccccc ;
+        }
+        #sub {
+            width: 500px;
+            height: 43px;
+            text-align: center;
+            border-radius: 14px;
+            font-size: 18px;
+        }
+
+        #sub:hover {
+            background-color: darkcyan;
+        }
+     </style>
+</body>
+
+</html>
